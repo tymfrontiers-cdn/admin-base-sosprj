@@ -1,0 +1,19 @@
+@import "colors";
+@import "fn";
+@import "font-face";
+@import "var";
+
+// default view: mobile
+// tablet view
+@media only screen and (min-width: 48em) {
+}
+// laptop view
+@media only screen and (min-width: 62em) {
+}
+// desktop view
+@media only screen and (min-width: 81em) {
+}
+
+body{
+  font-family: sans-serif;
+}

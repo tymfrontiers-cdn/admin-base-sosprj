@@ -1,0 +1,19 @@
+{
+  "7os/prjman" : {
+    "http" : true,
+    "name" : "prjman",
+    "path" : "\/prjman",
+    "title" : "Project manager",
+    "paths" : [
+      {
+        "name" : "prjman",
+        "path" : "\/prjman",
+        "title" : "Project manager"
+      },
+      { "\/prjman\/apps" : "/pages/apps.php" },
+      { "\/prjman\/app" : "/pages/app.php" },
+      { "\/prjman\/app\/install" : "/pages/app-install.php" },
+      { "\/prjman\/app\/install" : "/pages/app-install.php" },
+    ]
+  }
+}

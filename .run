@@ -1,0 +1,10 @@
+{
+  "mysql" : [
+    {
+      "database" : {},
+      "user" : {},
+      "table" : {},
+      "data" : {}
+    }
+  ]
+}

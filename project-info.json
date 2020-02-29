@@ -1,0 +1,23 @@
+{
+  "NAME" : "tymfrontiers-cdn/admin-base-sosprj",
+  "TITLE" : "7 OS Admin - project template",
+  "DESCRIPTION" : "",
+  "PRJ_KEYWORDS" : "",
+  "PRJ_AUTHOR" : "",
+  "PRJ_PUBLISHER" : "",
+  "PRJ_CREATOR" : "",
+  "PRJ_PRIMARY_COLOUR" : "#000",
+  "PRJ_SECONDARY_COLOUR" : "#ffffff",
+  "PRJ_THEME" : "light",
+  "HOMEPAGE" : "https://github.com/tymfrontiers-cdn/admin-base-sosprj",
+  "PRJ_ROOT"  : "/sites/admin-base-sosprj",
+  "DOMAIN"  : "admin-base",
+  "SUPPORT" : {
+    "EMAIL" : "dev@tymfrontiers.com",
+    "WEBSITE" : "https://github.com/tymfrontiers-cdn/admin-base-sosprj",
+    "KOLLABO" : "tymfrontiers",
+    "TWITTER" : "tymfrontiers",
+    "FACEBOOK" : "tymfrontiers",
+    "INSTAGRAM" : "tymfrontiers"
+  }
+}

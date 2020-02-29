@@ -1,0 +1,31 @@
+{
+  "base" : {
+    "/" : {
+      "access_rank" : 0,
+      "strict_access" : true,
+      "title" : "Home",
+      "icon" : "<i class='fas fa-home'></i>",
+      "onclick" : "",
+      "name" : "base",
+      "classname" : ""
+    },
+    "/about-us" : {
+      "access_rank" : 0,
+      "strict_access" : true,
+      "title" : "About 7OS",
+      "icon" : "<i class='fas fa-info'></i>",
+      "onclick" : "",
+      "name" : "",
+      "classname" : "about-us"
+    },
+    "/contact-us" : {
+      "access_rank" : 0,
+      "strict_access" : true,
+      "title" : "Contact us",
+      "icon" : "<i class='fas fa-phone'></i>",
+      "onclick" : "",
+      "name" : "contact-us",
+      "classname" : ""
+    }
+  }
+}
