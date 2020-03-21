@@ -19,10 +19,17 @@ function require_login (bool $redirect = true) {
   global $session;
   if (!$session->isLoggedIn() ) {
     if ($redirect) {
-      \TymFrontiers\HTTP\Header::redirect(\TymFrontiers\Generic::setGet(WHOST . '/user/login',['rdt'=>THIS_PAGE]));
+      \TymFrontiers\HTTP\Header::redirect(\TymFrontiers\Generic::setGet(WHOST . '/admin/login',['rdt'=>THIS_PAGE]));
     } else {
       \TymFrontiers\HTTP\Header::unauthorized(false,'',["Message"=>"Login is required for requested resource!"]);
     }
+  }
+}
+function check_access(string $path, bool $redirect=true,string $domain=PRJ_DOMAIN,string $user=''){
+  global $session;
+  $user = !empty($user) ? $user : $session->name;
+  if( !$session->isLoggedIn() || !(new \SOS\Admin($user))->hasAccess($path, $domain) ){
+    \TymFrontiers\HTTP\Header::unauthorized($redirect,"Access to [path] '{$path}' denied on [domain] '{$domain}'.",['Message'=>"Access to [path] '{$path}' denied on [domain] '{$domain}'"]);
   }
 }
 function email_temp (string $message, string $decoration='',string $unsubscribe=''){

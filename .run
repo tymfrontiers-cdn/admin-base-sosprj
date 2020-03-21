@@ -1,10 +1,10 @@
-{
-  "mysql" : [
-    {
-      "database" : {},
-      "user" : {},
-      "table" : {},
-      "data" : {}
-    }
-  ]
-}
+# Run following scripts
+
+ - Create database: {MYSQL_PREFIX}admin
+ - Create database: {MYSQL_PREFIX}log
+ - Create database: {MYSQL_PREFIX}data
+
+ ## Import tables into respective databases
+ - Import Database table: /data/admin.tables.sql // for admin database
+ - Import Database table: /data/data.tables.sql // for data database
+ - Import Database table: /data/log.tables.sql // for log database

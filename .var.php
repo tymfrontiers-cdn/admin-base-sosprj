@@ -94,3 +94,5 @@ $api_app = [
   "pu_key"  => API_APP_PUKEY,
   "pr_key"  => API_APP_PRKEY
 ];
+$mailgun_api_domain = PRJ_NAME;
+$mailgun_api_key = "";

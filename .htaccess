@@ -35,43 +35,24 @@ RewriteRule ^(404)/?$ %{ENV:SHORTCUT_PATH}/7os/404-soswapp/ [QSA,NC,L]
 ##-7os/500-soswapp-START
 RewriteRule ^(500)/?$ %{ENV:SHORTCUT_PATH}/7os/500-soswapp/ [QSA,NC,L]
 ##-7os/500-soswapp-END
-##-7os/about-soswapp-START
-RewriteRule ^(about|about-us|aboutus)/?$ %{ENV:SHORTCUT_PATH}/7os/about-soswapp/ [QSA,NC,L]
-RewriteRule ^(about|about-us|aboutus)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/about-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(about|about-us|aboutus)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/about-soswapp/$2 [QSA,NC,L]
-##-7os/about-soswapp-END
-##-7os/contact-soswapp-START
-RewriteRule ^(contact|contact-us|contactus)/?$ %{ENV:SHORTCUT_PATH}/7os/contact-soswapp/ [QSA,NC,L]
-RewriteRule ^(contact|contact-us|contactus)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/contact-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(contact|contact-us|contactus)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/contact-soswapp/$2 [QSA,NC,L]
-##-7os/contact-soswapp-END
-##-7os/terms-soswapp-START
-RewriteRule ^(terms?)/?$ %{ENV:SHORTCUT_PATH}/7os/terms-soswapp/ [QSA,NC,L]
-RewriteRule ^(terms?)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/terms-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(terms?)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/terms-soswapp/$2 [QSA,NC,L]
-##-7os/terms-soswapp-END
-##-7os/policy-soswapp-START
-RewriteRule ^(policy|policies)/?$ %{ENV:SHORTCUT_PATH}/7os/policy-soswapp/ [QSA,NC,L]
-RewriteRule ^(policy|policies)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/policy-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(policy|policies)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/policy-soswapp/$2 [QSA,NC,L]
-##-7os/policy-soswapp-END
-##-7os/faqs-soswapp-START
-RewriteRule ^(faqs?)/?$ %{ENV:SHORTCUT_PATH}/7os/faqs-soswapp/ [QSA,NC,L]
-RewriteRule ^(faqs?)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/faqs-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(faqs?)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/faqs-soswapp/$2 [QSA,NC,L]
-##-7os/faqs-soswapp-END
 ##-7os/prjman-soswapp-START
 RewriteRule ^(prjman?)/?$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/ [QSA,NC,L]
 RewriteRule ^(prjman?)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/pages/$2.php [QSA,NC,L]
 RewriteRule ^(prjman?)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/$2 [QSA,NC,L]
 ##-7os/prjman-soswapp-END
+##-tymfrontiers-cdn/admin-soswapp-START
+RewriteRule ^admin/?$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/ [QSA,NC,L]
+RewriteRule ^admin/(sign|log)\-?(in|out)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/sign-$2.php [QSA,NC,L]
+RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/$1.php [QSA,NC,L]
+RewriteRule ^admin/(.*)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/$1 [QSA,NC,L]
+##-tymfrontiers-cdn/admin-soswapp-END
 ### 7 OS Theming and plugins
 ##-7os-default-START
 RewriteRule ^file/?$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/ [QSA,NC,L]
 RewriteRule ^file/(\d+)$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/?fid=$1 [QSA,NC,L]
 RewriteRule ^file/([a-zA-Z0-9\-\.\_]+)$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/?fname=$1 [QSA,NC,L]
-RewriteRule ^navlist/?$ %{ENV:SHORTCUT_PATH}/7os/navlist-soswapp/ [QSA,NC,L]
-RewriteRule ^navlist/([a-zA-Z]{3,12})?$ %{ENV:SHORTCUT_PATH}/7os/navlist-soswapp/?format=$1 [QSA,NC,L]
+RewriteRule ^navlist/?$ %{ENV:SHORTCUT_PATH}/7os/admin-navlist-soswapp/ [QSA,NC,L]
+RewriteRule ^navlist/([a-zA-Z]{3,12})?$ %{ENV:SHORTCUT_PATH}/7os/admin-navlist-soswapp/?format=$1 [QSA,NC,L]
 RewriteRule ^(7os|sos)/([A-Za-z0-9\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/7os/$2/ [QSA,NC,L]
 RewriteRule ^(7os|sos)?/([A-Za-z0-9\-]{3,})/(.*)$ %{ENV:SHORTCUT_PATH}/7os/$2/$3 [QSA,NC,L]
 RewriteRule ^(7os|sos)?/([A-Za-z0-9\-]{3,})/([0-9a-zA-Z\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/7os/$2/pages/$3.php [QSA,NC,L]

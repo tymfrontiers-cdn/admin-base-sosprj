@@ -2,30 +2,20 @@
 namespace TymFrontiers;
 use \Michelf\Markdown;
 require_once "base.init.php";
-$gen = new Generic;
-$data = new Data;
-$params = $gen->requestParam([
-  "rdt" => ["rdt","url"]
-],'get',[]);
-if ($session->isLoggedIn()) {
-  $rdt = empty($params["rdt"])
-    ? WHOST . "/admin"
-    : $params["rdt"];
-}
+$page_name = "home";
+if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/dashboard");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr" manifest="./site.webmanifest">
   <head>
     <meta>
-    <title>Welcome | <?php echo PRJ_TITLE; ?></title>
+    <title>Welcome -<?php echo PRJ_TITLE; ?></title>
     <?php include PRJ_INC_ICONSET; ?>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-    <meta name="keywords" content="<?php echo PRJ_KEYWORDS; ?>">
-    <meta name="description" content="<?php echo PRJ_DESCRIPTION; ?>">
     <meta name="author" content="<?php echo PRJ_AUTHOR; ?>">
     <meta name="creator" content="<?php echo PRJ_CREATOR; ?>">
     <meta name="publisher" content="<?php echo PRJ_PUBLISHER; ?>">
-    <meta name="robots" content='index'>
+    <meta name="robots" content='nofollow'>
     <!-- Theming styles -->
     <link rel="stylesheet" href="./7os/font-awesome-soswapp/css/font-awesome.min.css">
     <link rel="stylesheet" href="./7os/theme-soswapp/css/theme.css">
@@ -38,9 +28,10 @@ if ($session->isLoggedIn()) {
     <link rel="stylesheet" href="<?php echo \html_style("base.css"); ?>">
   </head>
   <body>
-    <?php \setup_page("base", "base", 200, false); ?>
+    <?php \setup_page("base", "base", true, PRJ_HEADER_HEIGHT); ?>
+    <!-- page header -->
     <?php include PRJ_INC_HEADER; ?>
-    <div id="main-content">
+    <section id="main-content">
       <div class="view-space">
         <div class="grid-7-laptop">
           <div class="sec-div padding -p20 color face-primary">
@@ -68,7 +59,7 @@ if ($session->isLoggedIn()) {
               data-path="/admin/src"
               data-domain="<?php echo WHOST;?>"
               data-validate="false"
-              onsubmit="sos.form.submit(this, doLogin); return false;"
+              onsubmit="sos.form.submit(this, DoSignIn); return false;"
             >
               <input type="hidden" name="rdt" value="<?php echo !empty($params['rdt']) ? $params['rdt'] : ''; ?>">
               <input type="hidden" name="CSRF_token" value="<?php echo $session->createCSRFtoken('long-form'); ?>">
@@ -77,12 +68,15 @@ if ($session->isLoggedIn()) {
                 <label for="email"> <i class="fas fa-asterisk fa-sm fa-border"></i> Email</label>
                 <input type="email" placeholder="email@omain.ext" name="email" id="email" autocomplete="email" required>
               </div>
-              <div class="grid-8-phone">
+              <div class="grid-12-phone">
                 <label for="password"> <i class="fas fa-asterisk fa-sm fa-border"></i> Password</label>
                 <input type="password" placeholder="Login Password" name="password" id="password" autocomplete="off" required>
               </div>
-              <div class="grid-4-phone">
-                <br>
+              <div class="grid-7-tablet">
+                <input type="checkbox" class="solid" name="remember" value="1" id="remember">
+                <label for="remember" class="bold color-text">Remember me</label>
+              </div>
+              <div class="grid-7-phone grid-5-tablet">
                 <button type="submit" class="sos-btn face-primary"> <i class="fas fa-angle-double-right"></i> Login</button>
               </div>
               <br class="c-f">
@@ -92,11 +86,10 @@ if ($session->isLoggedIn()) {
 
         <br class="c-f">
       </div>
-    </div>
+      <br class="c-f">
+    </section>
 
-    <!-- page footer -->
     <?php include PRJ_INC_FOOTER; ?>
-
     <!-- Required scripts -->
     <script src="./7os/jquery-soswapp/js/jquery.min.js">  </script>
     <script src="./7os/js-generic-soswapp/js/js-generic.min.js">  </script>
@@ -107,16 +100,8 @@ if ($session->isLoggedIn()) {
     <script src="/7os/faderbox-soswapp/js/faderbox.min.js"></script>
     <!-- project scripts -->
     <script src="<?php echo \html_script ("base.min.js"); ?>"></script>
+    <script src="<?php echo WHOST . "/admin/assets/js/admin.min.js"; ?>"></script>
     <script type="text/javascript">
-      function doLogin(resp) {
-        if( resp && ( resp.errors.length <= 0 || resp.status == "0.0") ){
-          if ( resp.rdt.length > 0 ) {
-            setTimeout(function(){ window.location = resp.rdt; },3200);
-          } else {
-            setTimeout(function(){ removeAlert(); },3200);
-          }
-        }
-      }
     </script>
   </body>
 </html>
