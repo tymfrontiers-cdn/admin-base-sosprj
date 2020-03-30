@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `path_access` (
 -- Dumping data for table `path_access`
 --
 
-INSERT INTO `path_access` (`id`, `user`, `path_name`, `_author`, `_created`) VALUES
-(1, 'DFOWNER', 'project-admin/', 'DFOWNER', '2020-03-11 14:00:11');
+INSERT INTO `path_access` (`id`, `user`, `path_name`, `_author`) VALUES
+(1, 'DFOWNER', 'project-admin/', 'DFOWNER');
 
 -- --------------------------------------------------------
 
@@ -57,6 +57,43 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `_updated` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `setting_option`
+--
+
+CREATE TABLE `setting_option` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` char(28) NOT NULL,
+  `domain` char(32) NOT NULL,
+  `type` char(28) NOT NULL,
+  `type_variant` varchar(512) DEFAULT NULL,
+  `title` char(52) NOT NULL,
+  `description` varchar(256) NOT NULL,
+  `_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `setting_option`
+--
+ALTER TABLE `setting_option`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `name` (`name`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `setting_option`
+--
+ALTER TABLE `setting_option`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
 
@@ -86,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`_id`, `status`, `work_group`, `email`, `phone`, `password`, `name`, `surname`, `country_code`, `state_code`, `_author`, `_created`) VALUES
-('DFOWNER', 'DISABLED', 'OWNER', 'dev@project.info', NULL, '$2y$10$ZGNkNjhkZDc3OTAwZDQ2Z.cOwfggpgrg3GFo/mzscbQf9im5Mf.yK', 'Default', 'Owner', 'NG', 'NGLAG', 'DFOWNER', '2020-02-21 18:51:28');
+INSERT INTO `user` (`_id`, `status`, `work_group`, `email`, `phone`, `password`, `name`, `surname`, `country_code`, `state_code`, `_author`) VALUES
+('DFOWNER', 'DISABLED', 'OWNER', 'dev@project.info', NULL, '$2y$10$ZGNkNjhkZDc3OTAwZDQ2Z.cOwfggpgrg3GFo/mzscbQf9im5Mf.yK', 'Default', 'Owner', 'NG', 'NGLAG', 'DFOWNER');
 
 -- --------------------------------------------------------
 
@@ -171,18 +208,22 @@ CREATE TABLE IF NOT EXISTS `work_path` (
 -- Dumping data for table `work_path`
 --
 
-INSERT INTO `work_path` (`name`, `domain`, `path`, `nav_visible`, `access_rank`, `access_rank_strict`, `onclick`, `classname`, `title`, `icon`, `sort`, `description`, `_created`) VALUES
-('project-admin/', 'project-admin', '/', 0, 7, 0, NULL, NULL, 'Ultimate access', NULL, 0, 'Ultimate domain -path/access', '2020-03-11 13:36:21'),
-('project-admin/dashboard', 'project-admin', '/dashboard', 1, 4, 0, '', '', 'Dashboard', '&lt;i class=&quot;fas fa-tachometer-alt&quot;&gt;&lt;/i&gt;', 0, 'Admin dashboard', '2020-03-11 14:30:22'),
-('project-admin/path-access', 'project-admin', '/path-access', 0, 6, 0, NULL, NULL, '/Path-access', NULL, 0, 'Path access management grant', '2020-03-11 14:23:48'),
-('project-admin/path-accesses', 'project-admin', '/path-accesses', 1, 6, 0, '', '', 'Path access', '&lt;i class=&quot;fas fa-universal-access&quot;&gt;&lt;/i&gt;', 4, 'Path access listing', '2020-03-11 14:20:31'),
-('project-admin/sign-out', 'project-admin', '/sign-out', 1, 1, 1, '', '', 'Sign out', '&lt;i class=&quot;fas fa-sign-out-alt&quot;&gt;&lt;/i&gt;', 50, 'Link to sign out', '2020-03-11 15:24:51'),
-('project-admin/user', 'project-admin', '/user', 0, 6, 0, NULL, NULL, '/User', NULL, 0, 'Path access for user management', '2020-03-11 14:11:36'),
-('project-admin/users', 'project-admin', '/users', 1, 4, 0, '', '', 'Users', '&lt;i class=&quot;fas fa-users&quot;&gt;&lt;/i&gt;', 1, 'Admin user accounts', '2020-03-11 14:10:18'),
-('project-admin/work-domain', 'project-admin', '/work-domain', 0, 6, 0, NULL, NULL, '/WorkDomain', NULL, 0, 'Work domain management access', '2020-03-11 14:13:35'),
-('project-admin/work-domains', 'project-admin', '/work-domains', 1, 4, 0, '', '', 'Work domains', '&lt;i class=&quot;fas fa-globe&quot;&gt;&lt;/i&gt;', 2, 'Work domain list', '2020-03-11 14:12:49'),
-('project-admin/work-path', 'project-admin', '/work-path', 0, 6, 0, NULL, NULL, '/Work-Path', NULL, 0, 'Work path manager access', '2020-03-11 14:18:27'),
-('project-admin/work-paths', 'project-admin', '/work-paths', 1, 6, 0, '', '', 'Work paths', '&lt;i class=&quot;fas fa-folder-open&quot;&gt;&lt;/i&gt;', 3, 'List of work paths', '2020-03-11 14:16:35');
+INSERT INTO `work_path` (`name`, `domain`, `path`, `nav_visible`, `access_rank`, `access_rank_strict`, `onclick`, `classname`, `title`, `icon`, `sort`, `description`) VALUES
+('project-admin/', 'project-admin', '/', 0, 7, 0, NULL, NULL, 'Ultimate access', NULL, 0, 'Ultimate domain -path/access'),
+('project-admin/dashboard', 'project-admin', '/dashboard', 1, 4, 0, '', '', 'Dashboard', '&lt;i class=&quot;fas fa-tachometer-alt&quot;&gt;&lt;/i&gt;', 0, 'Admin dashboard'),
+('project-admin/path-access', 'project-admin', '/path-access', 0, 6, 0, NULL, NULL, '/Path-access', NULL, 0, 'Path access management grant'),
+('project-admin/path-accesses', 'project-admin', '/path-accesses', 1, 6, 0, '', '', 'Path access', '&lt;i class=&quot;fas fa-universal-access&quot;&gt;&lt;/i&gt;', 4, 'Path access listing'),
+('project-admin/sign-out', 'project-admin', '/sign-out', 1, 1, 1, '', '', 'Sign out', '&lt;i class=&quot;fas fa-sign-out-alt&quot;&gt;&lt;/i&gt;', 50, 'Link to sign out'),
+('project-admin/user', 'project-admin', '/user', 0, 6, 0, NULL, NULL, '/User', NULL, 0, 'Path access for user management'),
+('project-admin/users', 'project-admin', '/users', 1, 4, 0, '', '', 'Users', '&lt;i class=&quot;fas fa-users&quot;&gt;&lt;/i&gt;', 1, 'Admin user accounts'),
+('project-admin/work-domain', 'project-admin', '/work-domain', 0, 6, 0, NULL, NULL, '/WorkDomain', NULL, 0, 'Work domain management access'),
+('project-admin/work-domains', 'project-admin', '/work-domains', 1, 4, 0, '', '', 'Work domains', '&lt;i class=&quot;fas fa-globe&quot;&gt;&lt;/i&gt;', 2, 'Work domain list'),
+('project-admin/work-path', 'project-admin', '/work-path', 0, 6, 0, NULL, NULL, '/Work-Path', NULL, 0, 'Work path manager access'),
+('project-admin/work-paths', 'project-admin', '/work-paths', 1, 6, 0, '', '', 'Work paths', '&lt;i class=&quot;fas fa-folder-open&quot;&gt;&lt;/i&gt;', 3, 'List of work paths'),
+('project-admin/setting', 'project-admin', '/setting', 0, 5, 0, NULL, NULL, '/Setting access', NULL, 0, 'Path access for settings'),
+('project-admin/setting-option', 'project-admin', '/setting-option', 0, 7, 0, NULL, NULL, '/Setting option', NULL, 0, 'Access to manage setting options'),
+('project-admin/setting-options', 'project-admin', '/setting-options', 1, 7, 0, '', '', 'Setting options', '&lt;i class=&quot;fas fa-cogs&quot;&gt;&lt;/i&gt;', 11, 'View setting options'),
+('project-admin/settings', 'project-admin', '/settings', 1, 4, 0, NULL, NULL, 'Settings', '&lt;i class=&quot;fas fa-cog&quot;&gt;&lt;/i&gt;', 10, 'Settings list/options');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

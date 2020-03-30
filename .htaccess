@@ -43,7 +43,9 @@ RewriteRule ^(prjman?)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/$2 [QSA,NC,
 ##-tymfrontiers-cdn/admin-soswapp-START
 RewriteRule ^admin/?$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/ [QSA,NC,L]
 RewriteRule ^admin/(sign|log)\-?(in|out)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/sign-$2.php [QSA,NC,L]
+RewriteRule ^admin/(src|sources?)/(.*)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/src/$2 [QSA,NC,L]
 RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/$1.php [QSA,NC,L]
+RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/$1-$2.php [QSA,NC,L]
 RewriteRule ^admin/(.*)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/$1 [QSA,NC,L]
 ##-tymfrontiers-cdn/admin-soswapp-END
 ### 7 OS Theming and plugins
