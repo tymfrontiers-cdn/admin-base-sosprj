@@ -104,21 +104,6 @@ CREATE TABLE IF NOT EXISTS `otp_email` (
   UNIQUE KEY `ref` (`ref`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `setting`
---
-
-DROP TABLE IF EXISTS `setting`;
-CREATE TABLE IF NOT EXISTS `setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user` char(56) NOT NULL,
-  `skey` char(26) NOT NULL,
-  `sval` char(128) NOT NULL,
-  `_updated` datetime NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
