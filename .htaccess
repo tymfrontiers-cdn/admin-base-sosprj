@@ -19,6 +19,12 @@ SetEnvIf Request_URL "^.*" SHORTCUT_PATH=/dev
 # RewriteCond %{HTTPS} !=on
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #-FORCE-HTTPS-END
+#-BASE-SERVICE-START
+RewriteRule ^web\-service?/?$ /src/web-service/ [QSA,NC,L]
+RewriteRule ^web\-service?/([a-zA-Z0-9\-\.\_]{2,})$ /src/web-service/$1.php [QSA,NC,L]
+RewriteRule ^web\-service?/([a-zA-Z0-9\-\.\_]{2,})/([a-zA-Z0-9\-\.\_]{2,})$ /src/web-service/$1-$2.php [QSA,NC,L]
+RewriteRule ^web\-service?/(.*)?$ /src/web-service/$1 [QSA,NC,L]
+#-BASE-SERVICE-END
 ##-APP-SHORTCUT-START
 ##-7os/400-soswapp-START
 RewriteRule ^(400)/?$ %{ENV:SHORTCUT_PATH}/7os/400-soswapp/ [QSA,NC,L]

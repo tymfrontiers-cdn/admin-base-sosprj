@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`_id`, `status`, `work_group`, `email`, `phone`, `password`, `name`, `surname`, `country_code`, `state_code`, `_author`) VALUES
-('DFOWNER', 'DISABLED', 'OWNER', 'dev@project.info', NULL, '$2y$10$ZGNkNjhkZDc3OTAwZDQ2Z.cOwfggpgrg3GFo/mzscbQf9im5Mf.yK', 'Default', 'Owner', 'NG', 'NGLAG', 'DFOWNER');
+('DFOWNER', 'ACTIVE', 'OWNER', 'dev@project.info', NULL, '$2y$10$ZGNkNjhkZDc3OTAwZDQ2Z.cOwfggpgrg3GFo/mzscbQf9im5Mf.yK', 'Default', 'Owner', 'NG', 'NGLAG', 'DFOWNER');
 
 -- --------------------------------------------------------
 

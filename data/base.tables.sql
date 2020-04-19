@@ -46,17 +46,18 @@ ALTER TABLE `setting`
   -- Table structure for table `setting_option`
   --
 
-  DROP TABLE IF EXISTS `setting_option`;
-  CREATE TABLE `setting_option` (
-    `id` bigint(20) UNSIGNED NOT NULL,
-    `name` char(28) NOT NULL,
-    `domain` char(32) NOT NULL,
-    `type` char(28) NOT NULL,
-    `type_variant` varchar(512) DEFAULT NULL,
-    `title` char(52) NOT NULL,
-    `description` varchar(256) NOT NULL,
-    `_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `setting_option`;
+CREATE TABLE `setting_option` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` char(28) NOT NULL,
+  `domain` char(32) NOT NULL,
+  `multi_val` tinyint(1) DEFAULT 0,
+  `type` char(28) NOT NULL,
+  `type_variant` varchar(512) DEFAULT NULL,
+  `title` char(52) NOT NULL,
+  `description` varchar(256) NOT NULL,
+  `_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
   --
   -- Indexes for dumped tables
