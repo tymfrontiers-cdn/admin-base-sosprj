@@ -33,6 +33,7 @@
       "tymfrontiers-cdn/php-otp": ">=0.1.0@stable",
       "tymfrontiers-cdn/php-event": ">=0.1.0@stable",
       "tymfrontiers-cdn/php-sos-admin": ">=0.1.0@stable",
+      "tymfrontiers-cdn/admin-soswapp": ">=0.1.0@stable",
       "7os/400-soswapp" : ">=0.1@stable",
       "7os/401-soswapp" : ">=0.1@stable",
       "7os/403-soswapp" : ">=0.1@stable",

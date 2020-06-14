@@ -5,6 +5,7 @@
 \define("PRJ_APP_DIR",PRJ_ROOT . "/dev"); // /dev for development | /vendor for production
 \define ("PRJ_ENABLE_ACCESS_GROUP", true); // Whether or not to switch user access group when logged in
 \define("PRJ_DOMAIN","admin-base");
+\define("PRJ_BASE_DOMAIN","admin-base"); // Project base/primary domain
 \define("PRJ_NAME","admin-base-sosprj");
 \define("PRJ_TITLE","Admin Management Portal");
 \define("PRJ_DESCRIPTION","Admin Management Portal base app template for 7 OS.");

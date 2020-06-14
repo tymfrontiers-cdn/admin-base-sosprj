@@ -12,3 +12,5 @@ test/*
 !storage/.gitkeep
 composer.lock
 .system/errors/
+.system/appdata/*
+!.system/appdata/.gitkeep
