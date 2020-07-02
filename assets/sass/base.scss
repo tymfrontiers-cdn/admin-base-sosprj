@@ -3,6 +3,242 @@
 @import "font-face";
 @import "var";
 
+body{
+  font-family: $body-font, $default-font;
+  font-size: 0.9em;
+  min-width: 320px;
+  max-width: 1920px;
+  margin: 0 auto;
+  color: $text-color;
+  background-color: $backgound-color;
+  &.no-scroll{
+    overflow: hidden !important;
+  }
+}
+#body-fade{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: $light-trans;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 600;
+}
+a{
+	outline:none;
+	border:none;
+	text-decoration:none;
+	color:darken($primary-color,8%);
+  // font-weight: bold;
+	@include animate-all;
+	&:visited{ color:lighten($primary-color,15%); outline:none; }
+	&:hover{ color: darken($primary-color,10%); }
+	&:focus{outline: none;}
+  &.red, &.red:visited{
+    color: $red;
+    &:hover{ color: darken($red,12%); }
+  }
+  &.green, &.green:visited{
+    color: $green;
+    &:hover{ color: darken($green,12%); }
+  }
+  &.blue, &.blue:visited{
+    color: $blue;
+    &:hover{ color: darken($blue,12%); }
+  }
+  &.amber, &.amber:visited{
+    color: $amber;
+    &:hover{ color: darken($amber,12%); }
+  }
+}
+a.inherit{
+  color: inherit;
+  &:hover{
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    border-bottom-color: $primary-color;
+    opacity: 0.8;
+  }
+}
+h1, h2, h3, h4, h5, h6, hgroup, .h-font{
+  font-family: $header-font, $body-font, $default-font;
+  // text-transform: lowercase;
+}
+
+.bg-grey{ background-color: $grey !important; }
+.bg-silver{ background-color: $silver !important; }
+.bg-dark-silver{ background-color: darken($silver,7%) !important; }
+.bg-asphalt{ background-color: $asphalt !important; color: #FFF; }
+.bg-face-primary{ background-color: $primary-color !important; color: $secondary-color; }
+.bg-face-secondary{ background-color: $secondary-color !important; color: $primary-color; }
+.bg-blue{ background-color: $blue; color: white; }
+.bg-red{ background-color: $red; color: white; }
+.bg-asphalt{ background-color: $asphalt; color: white; }
+.color-primary{ color: $primary-color !important; }
+.color-secondary{ color: $secondary-color !important; }
+.clear{ clear: both; }
+.no-float{ float: none !important; }
+.inline-block{ display: inline-block !important; }
+.inline{ display: inline !important; }
+.block{ display: block !important; }
+.naira, .fa .fa-naira{
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  &::before{
+    content: "N";
+    font-size: 1.1em;
+  }
+  &::after{
+    content: " ";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: inherit;
+    border-right: none;
+    border-left: none;
+    border-top-width: 5%;
+    border-bottom-width: 5%;
+    width: 110%;
+    height: 25%;
+    left: -5%;
+    top: 40%;
+  }
+}
+.vcode-text{
+  letter-spacing: 12px;
+}
+
+#fader-flow{
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+}
+.tagsinput{
+  border-width: 2px !important;
+  border-style: solid;
+  border-color: inherit;
+  margin: 0;
+  margin-top: 6px;
+  padding: 10px !important;
+  width: 100% !important;
+  & input{ border: none !important; }
+}
+.fw-lighter{ font-weight: lighter; }
+#sos-dnav {
+  background-color: $header-color !important;
+  color: white;
+  @include no-shadow;
+  li.current-nav{
+    border-color: $backgound-color !important;
+    color: white !important;
+  }
+  li a:hover{
+    color: $primary-color !important;
+    @include border-radius(8px 8px 0 0);
+  }
+  .sos-dnav-current a{
+    color: black !important;
+    border-color: $backgound-color !important;
+  }
+}
+
+@-moz-document url-prefix() {
+  textarea#command {
+    height: 1em;
+  }
+}
+blockquote{
+  p{
+    border-left-width: 2.5px;
+    border-left-style: solid;
+    padding: 8px;
+    background-color: lighten($clouds,5%);
+  }
+}
+.btn.face-primary,
+.sos-btn.face-primary,
+.button.face-primary,
+.sos-button.face-primary{
+  color: white;
+  background-color: $primary-color;
+  &:hover {
+    background-color: darken($primary-color,12%);
+  }
+}
+.btn.face-secondary,
+.sos-btn.face-secondary,
+.button.face-secondary,
+.sos-button.face-secondary{
+  color: white;
+  background-color: $secondary-color;
+  &:hover {
+    background-color: darken($secondary-color,12%);
+  }
+}
+button.hidden{
+  height: 0px !important;
+  width: 0px !important;
+  padding: none !important;
+  margin: none !important;
+}
+.color.face-secondary{
+  border-color: $secondary-color;
+  &.color-text, .color-text{ color: $secondary-color; }
+  &.color-bg, .color-bg{
+    border-color:darken($secondary-color, 10%);
+    background-color: $secondary-color;
+    color:$primary-color;
+  }
+  &.no-bgc, .no-bgc{ background-color: transparent;}
+  div, p, h1, h3, h4, h5, h6, article, section, table, tr, th, thead, tbody, td, header, nav, aside, footer, ul, ol, li, button{
+    border-color: $secondary-color;
+    &:color-bg, .color-bg{ border-color: darken($secondary-color,10%);}
+  }
+  input, select, button, textarea{
+    border-color: lighten($secondary-color,22%) !important;
+    &:focus, &.has-val{ border-color:$secondary-color !important; }
+  }
+}
+.color.face-primary{
+  border-color: $primary-color;
+  &.color-text, .color-text{ color: $primary-color; }
+  &.color-bg, .color-bg{
+    border-color:darken($primary-color, 8%);
+    background-color: $primary-color;
+    color:white;
+  }
+  &.no-bgc, .no-bgc{ background-color: transparent;}
+  div, p, h1, h3, h4, h5, h6, article, section, table, tr, th, thead, tbody, td, header, nav, aside, footer, ul, ol, li, button{
+    border-color: $primary-color;
+    &:color-bg, .color-bg{ border-color: darken($primary-color,8%);}
+  }
+  input, select, button, textarea{
+    border-color: lighten($primary-color,22%) !important;
+    &:focus, &.has-val{ border-color:$primary-color !important; }
+  }
+}
+
+// jquery ui
+.ui-state-focus { outline: none; }
+.ui-accordion-header {outline: none;}
+.wk-domain-list{
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li{
+    position: relative;
+    padding: 12px;
+    .fa-stack{ float: left; margin: 0 8px 5px 0; }
+    h2, h3, p{ margin: 3.5px 0; }
+  }
+}
+
 // default view: mobile
 // tablet view
 @media only screen and (min-width: 48em) {

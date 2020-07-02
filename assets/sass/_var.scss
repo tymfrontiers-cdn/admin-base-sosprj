@@ -1,4 +1,13 @@
 $primary-color      : #000;
-$secondary-color    : #ffffff;
-$heading-font       : "Heading Font";
+$secondary-color    : #fff;
+
+$text-color         : #231F20;
+$light-trans        : rgba(242,242,242,0.75);
+$dark-trans         : rgba(0,0,0,0.55);
+$header-height      : 100px;
+
+$header-font        : "Heading Font";
 $body-font          : "Body Font";
+$default-font       : sans-serif;
+$backgound-color    : lighten(#000000, 90%);
+$header-color       : $primary-color;
