@@ -1,12 +1,12 @@
 <?php
 namespace TymFrontiers;
 use \Michelf\Markdown;
-require_once "base.init.php";
+require_once ".baseinit.php";
 $page_name = "home";
-if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/dashboard");
+if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/work-domain");
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr" manifest="./site.webmanifest">
+<html lang="en" dir="ltr" manifest="/site.webmanifest">
   <head>
     <meta>
     <title>Welcome -<?php echo PRJ_TITLE; ?></title>
@@ -17,13 +17,13 @@ if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/dashboard");
     <meta name="publisher" content="<?php echo PRJ_PUBLISHER; ?>">
     <meta name="robots" content='nofollow'>
     <!-- Theming styles -->
-    <link rel="stylesheet" href="./7os/font-awesome-soswapp/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./7os/theme-soswapp/css/theme.min.css">
-    <link rel="stylesheet" href="./7os/theme-soswapp/css/theme-<?php echo PRJ_THEME; ?>.min.css">
+    <link rel="stylesheet" href="/app/soswapp/font-awesome.soswapp/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/app/soswapp/theme.soswapp/css/theme.min.css">
+    <link rel="stylesheet" href="/app/soswapp/theme.soswapp/css/theme-<?php echo PRJ_THEME; ?>.min.css">
     <!-- optional plugin -->
-    <link rel="stylesheet" href="./7os/plugin-soswapp/css/plugin.min.css">
-    <link rel="stylesheet" href="./7os/dnav-soswapp/css/dnav.min.css">
-    <link rel="stylesheet" href="./7os/faderbox-soswapp/css/faderbox.min.css">
+    <link rel="stylesheet" href="/app/soswapp/plugin.soswapp/css/plugin.min.css">
+    <link rel="stylesheet" href="/app/soswapp/dnav.soswapp/css/dnav.min.css">
+    <link rel="stylesheet" href="/app/soswapp/faderbox.soswapp/css/faderbox.min.css">
     <!-- Project styling -->
     <link rel="stylesheet" href="<?php echo \html_style("base.min.css"); ?>">
   </head>
@@ -55,9 +55,7 @@ if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/dashboard");
               id="long-form"
               class="block-ui padding -p20"
               method="post"
-              action="/SignIn.php"
-              data-path="/admin/src"
-              data-domain="<?php echo WHOST;?>"
+              action="/app/tymfrontiers-cdn/admin.soswapp/src/SignIn.php"
               data-validate="false"
               onsubmit="sos.form.submit(this, DoSignIn); return false;"
             >
@@ -91,16 +89,16 @@ if ($session->isLoggedIn()) HTTP\Header::redirect( WHOST . "/dashboard");
 
     <?php include PRJ_INC_FOOTER; ?>
     <!-- Required scripts -->
-    <script src="./7os/jquery-soswapp/js/jquery.min.js">  </script>
-    <script src="./7os/js-generic-soswapp/js/js-generic.min.js">  </script>
-    <script src="./7os/theme-soswapp/js/theme.min.js"></script>
+    <script src="/app/soswapp/jquery.soswapp/js/jquery.min.js">  </script>
+    <script src="/app/soswapp/js-generic.soswapp/js/js-generic.min.js">  </script>
+    <script src="/app/soswapp/theme.soswapp/js/theme.min.js"></script>
     <!-- optional plugins -->
-    <script src="/7os/plugin-soswapp/js/plugin.min.js"></script>
-    <script src="/7os/dnav-soswapp/js/dnav.js"></script>
-    <script src="/7os/faderbox-soswapp/js/faderbox.min.js"></script>
+    <script src="/app/soswapp/plugin.soswapp/js/plugin.min.js"></script>
+    <script src="/app/soswapp/dnav.soswapp/js/dnav.js"></script>
+    <script src="/app/soswapp/faderbox.soswapp/js/faderbox.min.js"></script>
     <!-- project scripts -->
     <script src="<?php echo \html_script ("base.min.js"); ?>"></script>
-    <script src="<?php echo WHOST . "/admin/assets/js/admin.min.js"; ?>"></script>
+    <script src="/app/tymfrontiers-cdn/admin.soswapp/js/admin.min.js"></script>
     <script type="text/javascript">
     </script>
   </body>

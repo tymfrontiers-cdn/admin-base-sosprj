@@ -210,9 +210,6 @@ h1, h2, h3, h4, h5, h6, hgroup, .h-font {
 #sos-dnav {
   background-color: #000 !important;
   color: white;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
 }
 #sos-dnav li.current-nav {
   border-color: #e6e6e6 !important;
@@ -220,10 +217,6 @@ h1, h2, h3, h4, h5, h6, hgroup, .h-font {
 }
 #sos-dnav li a:hover {
   color: #000 !important;
-  -webkit-border-radius: 8px 8px 0 0;
-  -ms-border-radius: 8px 8px 0 0;
-  -moz-border-radius: 8px 8px 0 0;
-  border-radius: 8px 8px 0 0;
 }
 #sos-dnav .sos-dnav-current a {
   color: black !important;
@@ -357,8 +350,17 @@ button.hidden {
   margin: 3.5px 0;
 }
 
-body {
-  font-family: sans-serif;
+#floatn-plus {
+  position: fixed;
+  right: 12px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 200;
 }
 
 /*# sourceMappingURL=base.css.map */

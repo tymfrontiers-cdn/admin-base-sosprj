@@ -4,8 +4,8 @@
 \define("PRJ_LIBRARY",PRJ_ROOT . "/vendor"); //composer directory
 \define("PRJ_APP_DIR",PRJ_ROOT . "/dev"); // /dev for development | /vendor for production
 \define ("PRJ_ENABLE_ACCESS_GROUP", true); // Whether or not to switch user access group when logged in
-\define("PRJ_DOMAIN","admin-base");
-\define("PRJ_BASE_DOMAIN","admin-base"); // Project base/primary domain
+\define("PRJ_DOMAIN","admin-base.sosprj");
+\define("PRJ_BASE_DOMAIN","base.sosprj"); // Project base/primary domain
 \define("PRJ_NAME","admin-base-sosprj");
 \define("PRJ_TITLE","Admin Management Portal");
 \define("PRJ_DESCRIPTION","Admin Management Portal base app template for 7 OS.");
@@ -42,9 +42,6 @@
 \define("PRJ_SIDEBAR_POS","off"); // position of side bar: "left", "right", "off"
 \define("PRJ_HEADER_HEIGHT", 100); // Height of header pane in px
 // Robots
-\define("PRJ_BOT_WELCOME", "Dimma"); // Robot: welcomes new users
-\define("PRJ_BOT_AUTH", "Agu"); // Robot: authentications etc
-\define("PRJ_BOT_Help", "Mmasi"); // Robot: support robot
 \define("PRJ_SUPPORT_EMAIL", "support@" . PRJ_DOMAIN); // support email
 \define("PRJ_AUTO_EMAIL", "no_reply@" . PRJ_DOMAIN); // Email for sending random message
 \define("PRJ_ADMIN_EMAIL", "admin@" . PRJ_DOMAIN); // Admin Email
@@ -60,25 +57,25 @@
 \define("MYSQL_FILE_TBL", "file_meta"); // table for storing file data
 // MySQL Users
 \define("MYSQL_GUEST_USERNAME", MYSQL_PREFIX . "GUEST");
-\define("MYSQL_GUEST_PASS","7OSpwd1234Pass");
+\define("MYSQL_GUEST_PASS","PassWord123");
 \define("MYSQL_USER_USERNAME", MYSQL_PREFIX . "USER");
-\define("MYSQL_USER_PASS","7OSpwd1234Pass");
+\define("MYSQL_USER_PASS","PassWord123");
 \define("MYSQL_ANALYST_USERNAME", MYSQL_PREFIX . "ANALYST");
-\define("MYSQL_ANALYST_PASS","7OSpwd1234Pass");
+\define("MYSQL_ANALYST_PASS","PassWord123");
 \define("MYSQL_ADVERTISER_USERNAME", MYSQL_PREFIX . "ADVERTISER");
-\define("MYSQL_ADVERTISER_PASS","7OSpwd1234Pass");
+\define("MYSQL_ADVERTISER_PASS","PassWord123");
 \define("MYSQL_MODERATOR_USERNAME", MYSQL_PREFIX . "MODERATOR");
-\define("MYSQL_MODERATOR_PASS","7OSpwd1234Pass");
+\define("MYSQL_MODERATOR_PASS","PassWord123");
 \define("MYSQL_EDITOR_USERNAME", MYSQL_PREFIX . "EDITOR");
-\define("MYSQL_EDITOR_PASS","7OSpwd1234Pass");
+\define("MYSQL_EDITOR_PASS","PassWord123");
 \define("MYSQL_ADMIN_USERNAME", MYSQL_PREFIX . "ADMIN");
-\define("MYSQL_ADMIN_PASS","7OSpwd1234Pass");
+\define("MYSQL_ADMIN_PASS","PassWord123");
 \define("MYSQL_DEVELOPER_USERNAME", MYSQL_PREFIX . "DEVELOPER");
-\define("MYSQL_DEVELOPER_PASS","7OSpwd1234Pass");
+\define("MYSQL_DEVELOPER_PASS","PassWord123");
 \define("MYSQL_SUPERADMIN_USERNAME", MYSQL_PREFIX . "SUPERADMIN");
-\define("MYSQL_SUPERADMIN_PASS","7OSpwd1234Pass");
+\define("MYSQL_SUPERADMIN_PASS","PassWord123");
 \define("MYSQL_OWNER_USERNAME", MYSQL_PREFIX . "OWNER");
-\define("MYSQL_OWNER_PASS","7OSpwd1234Pass");
+\define("MYSQL_OWNER_PASS","PassWord123");
 
 // generic definition
 \define('REQUEST_SCHEME',(

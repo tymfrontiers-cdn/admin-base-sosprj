@@ -1,5 +1,5 @@
 {
-  "NAME" : "tymfrontiers-cdn/admin-base-sosprj",
+  "NAME" : "tymfrontiers-cdn/admin-base.sosprj",
   "TITLE" : "7 OS Admin - project template",
   "DESCRIPTION" : "",
   "PRJ_KEYWORDS" : "",
@@ -10,7 +10,7 @@
   "PRJ_SECONDARY_COLOUR" : "#ffffff",
   "PRJ_THEME" : "light",
   "HOMEPAGE" : "https://github.com/tymfrontiers-cdn/admin-base-sosprj",
-  "PRJ_ROOT"  : "/sites/admin-base-sosprj",
+  "PRJ_ROOT"  : "d:/dev-src/admin-base.sosprj",
   "DOMAIN"  : "admin-base",
   "SUPPORT" : {
     "EMAIL" : "dev@tymfrontiers.com",

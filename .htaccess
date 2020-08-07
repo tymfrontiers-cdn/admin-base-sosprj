@@ -9,7 +9,7 @@ RewriteBase /
 </FilesMatch>
 ##--
 ##-REWRITEPATH-START
-SetEnvIf Request_URL "^.*" SHORTCUT_PATH=/dev
+SetEnvIf Request_URL "^.*" SHORTCUT_PATH=/vendor
 ##-REWRITEPATH-END
 ##-REMOVE-WWW-START
 # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
@@ -19,61 +19,33 @@ SetEnvIf Request_URL "^.*" SHORTCUT_PATH=/dev
 # RewriteCond %{HTTPS} !=on
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #-FORCE-HTTPS-END
-#-BASE-SERVICE-START
-RewriteRule ^web\-service?/?$ /src/web-service/ [QSA,NC,L]
-RewriteRule ^web\-service?/([a-zA-Z0-9\-\.\_]{2,})$ /src/web-service/$1.php [QSA,NC,L]
-RewriteRule ^web\-service?/([a-zA-Z0-9\-\.\_]{2,})/([a-zA-Z0-9\-\.\_]{2,})$ /src/web-service/$1-$2.php [QSA,NC,L]
-RewriteRule ^web\-service?/(.*)?$ /src/web-service/$1 [QSA,NC,L]
-#-BASE-SERVICE-END
 ##-APP-SHORTCUT-START
-##-7os/400-soswapp-START
-RewriteRule ^(400)/?$ %{ENV:SHORTCUT_PATH}/7os/400-soswapp/ [QSA,NC,L]
-##-7os/400-soswapp-END
-##-7os/401-soswapp-START
-RewriteRule ^(401)/?$ %{ENV:SHORTCUT_PATH}/7os/401-soswapp/ [QSA,NC,L]
-##-7os/401-soswapp-END
-##-7os/403-soswapp-START
-RewriteRule ^(403)/?$ %{ENV:SHORTCUT_PATH}/7os/403-soswapp/ [QSA,NC,L]
-##-7os/403-soswapp-END
-##-7os/404-soswapp-START
-RewriteRule ^(404)/?$ %{ENV:SHORTCUT_PATH}/7os/404-soswapp/ [QSA,NC,L]
-##-7os/404-soswapp-END
-##-7os/500-soswapp-START
-RewriteRule ^(500)/?$ %{ENV:SHORTCUT_PATH}/7os/500-soswapp/ [QSA,NC,L]
-##-7os/500-soswapp-END
-##-7os/prjman-soswapp-START
-RewriteRule ^(prjman?)/?$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/ [QSA,NC,L]
-RewriteRule ^(prjman?)/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/pages/$2.php [QSA,NC,L]
-RewriteRule ^(prjman?)/(.*)$ %{ENV:SHORTCUT_PATH}/7os/prjman-soswapp/$2 [QSA,NC,L]
-##-7os/prjman-soswapp-END
-##-tymfrontiers-cdn/admin-soswapp-START
-RewriteRule ^admin/?$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/ [QSA,NC,L]
-RewriteRule ^admin/(sign|log)\-?(in|out)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/sign-$2.php [QSA,NC,L]
-RewriteRule ^admin/(src|sources?)/(.*)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/src/$2 [QSA,NC,L]
-RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/$1.php [QSA,NC,L]
-RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/pages/$1-$2.php [QSA,NC,L]
-RewriteRule ^admin/(.*)$ %{ENV:SHORTCUT_PATH}/tymfrontiers-cdn/admin-soswapp/$1 [QSA,NC,L]
-##-tymfrontiers-cdn/admin-soswapp-END
-### 7 OS Theming and plugins
-##-7os-default-START
-RewriteRule ^file/?$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/ [QSA,NC,L]
-RewriteRule ^file/(\d+)$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/?fid=$1 [QSA,NC,L]
-RewriteRule ^file/([a-zA-Z0-9\-\.\_]+)$ %{ENV:SHORTCUT_PATH}/7os/file-soswapp/?fname=$1 [QSA,NC,L]
-RewriteRule ^navlist/?$ %{ENV:SHORTCUT_PATH}/7os/admin-navlist-soswapp/ [QSA,NC,L]
-RewriteRule ^navlist/([a-zA-Z]{3,12})?$ %{ENV:SHORTCUT_PATH}/7os/admin-navlist-soswapp/?format=$1 [QSA,NC,L]
-RewriteRule ^(7os|sos)/([A-Za-z0-9\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/7os/$2/ [QSA,NC,L]
-RewriteRule ^(7os|sos)?/([A-Za-z0-9\-]{3,})/(.*)$ %{ENV:SHORTCUT_PATH}/7os/$2/$3 [QSA,NC,L]
-RewriteRule ^(7os|sos)?/([A-Za-z0-9\-]{3,})/([0-9a-zA-Z\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/7os/$2/pages/$3.php [QSA,NC,L]
-RewriteRule ^(tymfrontiers|tymfrontiers-cdn)/([A-Za-z0-9\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/$1/$2/ [QSA,NC,L]
-RewriteRule ^(tymfrontiers|tymfrontiers-cdn)?/([A-Za-z0-9\-]{3,})/(.*)$ %{ENV:SHORTCUT_PATH}/$1/$2/$3 [QSA,NC,L]
-RewriteRule ^(tymfrontiers|tymfrontiers-cdn)?/([A-Za-z0-9\-]{3,})/([0-9a-zA-Z\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/$1/$2/pages/$3.php [QSA,NC,L]
-##-7os-default-END
+##-tymfrontiers-cdn/admin.soswapp-START
+RewriteRule ^work-domain/?$ /work-domain.php
+RewriteRule ^admin/?$ /app/tymfrontiers-cdn/admin.soswapp/ [QSA,NC,L]
+RewriteRule ^admin/(sign|log)\-?(in|out)/?$ /app/tymfrontiers-cdn/admin.soswapp/service/sign-$2.php [QSA,NC,L]
+RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers-cdn/admin.soswapp/service/$1.php [QSA,NC,L]
+RewriteRule ^admin/([0-9a-zA-Z\-\.]{3,})/([0-9a-zA-Z\-\.]{3,})/?$ /app/tymfrontiers-cdn/admin.soswapp/service/$1-$2.php [QSA,NC,L]
+RewriteRule ^admin/(.*)$ /app/tymfrontiers-cdn/admin.soswapp/$1 [QSA,NC,L]
+##-tymfrontiers-cdn/admin.soswapp-END
+##-APP-LOCATOR-START
+RewriteRule ^app/(400|401|403|404|500|faqs?|terms|policy|support|prjman|admin\-navlist)/?$ /app/soswapp/$1.soswapp/ [QSA,NC,L]
+RewriteRule ^app/policy/([a-zA-Z0-9\-]{3,16})/?$ /app/soswapp/policy.soswapp/loader.php?sub=$1 [QSA,NC,L]
+RewriteRule ^app/(400|401|403|404|500|faqs?|terms|policy|support|prjman|admin\-navlist)/(.*)?$ /app/soswapp/$1.soswapp/$2 [QSA,NC,L]
+RewriteRule ^app/(apps|applications)/?$ /app/soswapp/app-explorer.soswapp/ [QSA,NC,L]
+RewriteRule ^app/file/?$ /app/soswapp/file.soswapp/ [QSA,NC,L]
+RewriteRule ^app/file/(\d+)$ /app/soswapp/file.soswapp/?fid=$1 [QSA,NC,L]
+RewriteRule ^app/file/([a-zA-Z0-9\-\.\_]+)$ /app/soswapp/file.soswapp/?fname=$1 [QSA,NC,L]
+##
+RewriteRule ^(app|application)/([A-Za-z0-9\-\.\_]{3,})/([A-Za-z0-9\-\.\_]{3,})/?$ %{ENV:SHORTCUT_PATH}/$2/$3/ [QSA,NC,L]
+RewriteRule ^(app|application)/([A-Za-z0-9\-\.\_]{3,})/([A-Za-z0-9\-\.\_]{3,})/(.*)$ %{ENV:SHORTCUT_PATH}/$2/$3/$4 [QSA,NC,L]
+##-APP-LOCATOR-END
 ##-APP-SHORTCUT-END
 
 ##-CUSTOM-HTTP-ERROR-START
-ErrorDocument 400 /400?request=%{THE_REQUEST}
-ErrorDocument 401 /401?request=%{THE_REQUEST}
-ErrorDocument 403 /403?request=%{THE_REQUEST}
-ErrorDocument 404 /404?request=%{THE_REQUEST}
-ErrorDocument 500 /500?request=%{THE_REQUEST}
+ErrorDocument 400 /app/400/?request=%{THE_REQUEST}
+ErrorDocument 401 /app/401/?request=%{THE_REQUEST}
+ErrorDocument 403 /app/403/?request=%{THE_REQUEST}
+ErrorDocument 404 /app/404/?request=%{THE_REQUEST}
+ErrorDocument 500 /app/500/?request=%{THE_REQUEST}
 ##-CUSTOM-HTTP-ERROR-END

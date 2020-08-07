@@ -3,13 +3,13 @@ require_once \dirname(__DIR__) . "/.constant.php";
 require_once \dirname(__DIR__) . "/.var.php";
 
 function html_style (string $style_name) {
-  return WHOST . "/assets/css/" . $style_name;
+  return "/assets/css/" . $style_name;
 }
 function html_script (string $script_name) {
-  return WHOST . "/assets/js/" . $script_name;
+  return "/assets/js/" . $script_name;
 }
 function asset_img (string $filename) {
-  return WHOST . "/assets/img/{$filename}";
+  return "/assets/img/{$filename}";
 }
 function inc_file (string $filename) {
   return PRJ_ROOT . "/src/{$filename}";

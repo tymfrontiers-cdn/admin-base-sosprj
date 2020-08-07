@@ -132,14 +132,13 @@ h1, h2, h3, h4, h5, h6, hgroup, .h-font{
 #sos-dnav {
   background-color: $header-color !important;
   color: white;
-  @include no-shadow;
+  // @include no-shadow;
   li.current-nav{
     border-color: $backgound-color !important;
     color: white !important;
   }
   li a:hover{
     color: $primary-color !important;
-    @include border-radius(8px 8px 0 0);
   }
   .sos-dnav-current a{
     color: black !important;
@@ -238,7 +237,13 @@ button.hidden{
     h2, h3, p{ margin: 3.5px 0; }
   }
 }
-
+#floatn-plus{
+  position: fixed;
+  right: 12px; bottom: 20px;
+  width: 60px; height: 60px;
+  @include border-radius(100%);
+  z-index: 200;
+}
 // default view: mobile
 // tablet view
 @media only screen and (min-width: 48em) {
@@ -248,8 +253,4 @@ button.hidden{
 }
 // desktop view
 @media only screen and (min-width: 81em) {
-}
-
-body{
-  font-family: sans-serif;
 }
